@@ -10,7 +10,7 @@
 
     - name: Copy application HTML file
       copy:
-        src: /var/lib/jenkins/workspace/ci_cd_lab_app/index.html
+        src: /opt/devops-lab/devops-lab/index.html
         dest: /usr/share/nginx/html/index.html
         mode: 0644
 
