@@ -1,6 +1,6 @@
 ---
 - name: Deploy web application
-  hosts: all
+  hosts: mns
   become: yes
   tasks:
     - name: Ensure NGINX is installed
