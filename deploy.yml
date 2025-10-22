@@ -1,10 +1,20 @@
 ---
 - name: Deploy web application
-  hosts: inventory
+  hosts: all
   become: yes
   tasks:
-    - name: Copy app from Jenkins workspace
+    - name: Ensure NGINX is installed
+      dnf:
+        name: nginx
+        state: present
+
+    - name: Copy application HTML file
       copy:
         src: /var/lib/jenkins/workspace/ci_cd_lab_app/index.html
         dest: /usr/share/nginx/html/index.html
         mode: 0644
+
+    - name: Restart NGINX
+      service:
+        name: nginx
+        state: restarted
